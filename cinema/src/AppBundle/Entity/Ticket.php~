@@ -1,0 +1,218 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="ticket")
+ */
+class Ticket
+{
+    const TYPE_DEFAULT = 'default';
+    const TYPE_STUDENT = 'student';
+    const TYPE_COINS = 'coins';
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $row;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $seat;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Seance")
+     * @ORM\JoinColumn(name="seance_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $seance;
+
+    /**
+     * @ORM\Column(type="string", length=8, nullable=true)
+     */
+    private $bookingNumber;
+
+    /**
+     * @ORM\Column(type="string", length=12, unique=true, nullable=true)
+     */
+    private $ticketCode;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $ticketType;
+
+
+    function __construct()
+    {
+        $this->ticketType = $this::TYPE_DEFAULT;
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set row
+     *
+     * @param integer $row
+     *
+     * @return Ticket
+     */
+    public function setRow($row)
+    {
+        $this->row = $row;
+
+        return $this;
+    }
+
+    /**
+     * Get row
+     *
+     * @return integer
+     */
+    public function getRow()
+    {
+        return $this->row;
+    }
+
+    /**
+     * Set seat
+     *
+     * @param integer $seat
+     *
+     * @return Ticket
+     */
+    public function setSeat($seat)
+    {
+        $this->seat = $seat;
+
+        return $this;
+    }
+
+    /**
+     * Get seat
+     *
+     * @return integer
+     */
+    public function getSeat()
+    {
+        return $this->seat;
+    }
+
+    /**
+     * Set seance
+     *
+     * @param \AppBundle\Entity\Seance $seance
+     *
+     * @return Ticket
+     */
+    public function setSeance(\AppBundle\Entity\Seance $seance = null)
+    {
+        $this->seance = $seance;
+
+        return $this;
+    }
+
+    /**
+     * Get seance
+     *
+     * @return \AppBundle\Entity\Seance
+     */
+    public function getSeance()
+    {
+        return $this->seance;
+    }
+
+    /**
+     * Set bookingNumber
+     *
+     * @param string $bookingNumber
+     *
+     * @return Ticket
+     */
+    public function setBookingNumber($bookingNumber)
+    {
+        $this->bookingNumber = $bookingNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get bookingNumber
+     *
+     * @return string
+     */
+    public function getBookingNumber()
+    {
+        return $this->bookingNumber;
+    }
+
+    /**
+     * Set ticketCode
+     *
+     * @param string $ticketCode
+     *
+     * @return Ticket
+     */
+    public function setTicketCode($ticketCode)
+    {
+        $this->ticketCode = $ticketCode;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketCode
+     *
+     * @return string
+     */
+    public function getTicketCode()
+    {
+        return $this->ticketCode;
+    }
+
+    /**
+     * Set ticketType
+     *
+     * @param string $ticketType
+     *
+     * @return Ticket
+     */
+    public function setTicketType($ticketType)
+    {
+        $this->ticketType = $ticketType;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketType
+     *
+     * @return string
+     */
+    public function getTicketType()
+    {
+        return $this->ticketType;
+    }
+}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}Starlight Cinema{% endblock %}
+{% block body %}
+<div class="site-content">
+    <div style="margin: auto; width: 80%;">
+        <h2 class="sub-title">Contact us</h2>
+            <p class="text-center">If you have some questions fill this form and we will reply you as soon as possible</p>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p class="text-center"><a data-toggle="modal" data-target="#contactModal"
+               href="{{ path('contact_us') }}" class="btn btn-success">
+                Write to administrator
+            </a></p>
+        {% else %}
+            <a class="text-right" data-toggle="modal" data-target="#registerModal"
+               href="{{ path('fos_user_registration_register') }}">Register</a> or
+            <a data-toggle="modal" data-target="#loginModal"
+               href="{{ path('fos_user_security_login') }}">Login
+            </a>  to write to administrator
+        {% endif %}
+        <h2 class="sub-title">About us</h2>
+        <div class="cinema-picture prospect">
+        </div>
+        <div class="about-info">
+            <h2>Prospect</h2>
+            <h4 class="sub-text">
+                <table class="text-dark">
+                    <TR><TD>Working time</TD><TD>:</TD><TD>Mon-Sun 10:00-22:00</TD></TR>
+                    <TR><TD>Star Cinema </TD>    <TD>:</TD><TD>Mon-Sun 10:00-2:00</TD></TR>
+                    <TR><TD>Address </TD><TD>:</TD><TD>Gnat Hotkevich Street, 1B</TD></TR>
+                    <TR><TD>Telephone </TD><TD>:</TD><TD>38 (067) 384 50 14</TD></TR>
+                    <TR><TD>Email</TD><TD>:</TD><TD>starcinema.uk@gmail.com</TD></TR>
+                </table>
+                <img src="{{ asset('img/prospect_map.png') }}">
+            </h4>
+        </div>
+    </div>
+</div>
+
+    {#<!-- Modal Contact-->#}
+    <div id="contactModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document"  style="height: 263px; width: 600px;">
+            <div class="modal-content" style="height: 260px; width: 600px;">
+                <form id="contactForm" action="{{ path("contact_us") }}" method="post" role="form" data-async data-target="#contactModal" class="text-left">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Contact us</h4>
+                    </div>
+                    <div class="modal-body">
+                        <textarea rows="4" placeholder="Message..." name="text" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" id="contact_submit" name="_submit" value="Send" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

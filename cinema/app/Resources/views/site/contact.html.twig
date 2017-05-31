@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    $('#_submit').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: $('form').attr('method'),
+            url: $('form').attr('action'),
+            data: $('form').serialize(),
+            success: function (data, status, object) {
+                if (data.sucess == false) {
+                    $('.modal-body').prepend('<div />').html(data.message);
+                } else {
+                    window.location.href = data.targetUrl;
+                }
+            }
+        });
+    });
+</script>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <form action="{{ path("contact_us") }}" method="post" role="form" data-async data-target="#contactModal" class="text-left">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Contact us</h4>
+        </div>
+        <div class="modal-body">
+            <textarea rows="4" placeholder="Message..." required></textarea>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" id="_submit" name="_submit" value="Send" class="btn btn-primary">
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

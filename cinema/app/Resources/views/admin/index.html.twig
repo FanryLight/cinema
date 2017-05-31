@@ -1,0 +1,60 @@
+{% extends 'admin.html.twig' %}
+{% block title %} Admin Panel{% endblock %}
+{% block body %}
+    <input type="hidden" id="ticketTypes" value="{{ ticketTypes }}">
+    <input type="hidden" id="movieRatings" value="{{ movieRatings }}">
+    <input type="hidden" id="threeMonth" value="{{ threeMonth }}">
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var ticketTypes = $('#ticketTypes').attr('value');
+            var movieRatings = $('#movieRatings').attr('value');
+            var threeMonth = $('#threeMonth').attr('value');
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Ticket Type');
+            data.addColumn('number', 'Percent');
+            data.addRows(
+                JSON.parse(ticketTypes)
+            );
+            var options = {
+                title: 'Ticket Types',
+                is3D: false,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('ticketType'));
+            chart.draw(data, options);
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Rating Name');
+            data.addColumn('number', 'Rating');
+            data.addRows(
+                JSON.parse(movieRatings)
+            );
+            var options = {
+                title: 'Movie Ratings',
+                is3D: false,
+                pieResidueSliceLabel: 'Остальное'
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('movieRating'));
+            chart.draw(data, options);
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Booking');
+            data.addColumn('number', 'Comments');
+            data.addRows(
+                JSON.parse(threeMonth)
+            );
+            var options = {
+                title: 'Last three month statistic',
+                hAxis: {title: 'Date'},
+                vAxis: {title: 'Number'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('statistic'));
+            chart.draw(data, options);
+        }
+    </script>
+    <div id="ticketType" style="width: 500px; height: 400px;"></div>
+    <div id="movieRating" style="width: 500px; height: 400px;"></div>
+    <div id="statistic" style="width: 650px; height: 400px;"></div>
+{% endblock %}

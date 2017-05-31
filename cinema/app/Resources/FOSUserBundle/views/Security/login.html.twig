@@ -1,0 +1,38 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block user_content %}
+    <div class="modal-content" style="height: 320px; width: 500px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form col-md-12 center-block" id="loginForm"
+            action="{{ path("fos_user_security_check") }}" method="post">
+            {% if csrf_token is defined%}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+
+            <div class="form-group">
+                <input type="text"  class="form-control input-lg" placeholder="Username" id="username" name="_username" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control input-lg" placeholder="Password"  id="password" name="_password" required="required" />
+            </div>
+            <div class="form-group" style="width: 100%">
+                <label><input title="Remember me" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                Remember me</label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="form-control btn-success" id="_submit" name="_submit" value="Login" />
+            </div>
+            </form>
+            <div class="error text-danger text-center"></div>
+        </div>
+    </div>
+{% endblock %}
+
+<script src="{{ asset('js/style.js') }}"></script>

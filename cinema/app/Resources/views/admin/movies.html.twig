@@ -1,0 +1,27 @@
+{% extends 'admin.html.twig' %}
+{% block title %}Movies | Admin Panel{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="/admin/add_movie"><span class="glyphicon glyphicon-plus">Add Movie</span></a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <td class="text-center"><h4>Name</h4></td>
+            <td class="text-center"><h4>Premiere Date</h4></td>
+            <td class="text-center"><h4>On site</h4></td>
+            <td class="text-center"><h4>Edit</h4></td>
+            <td class="text-center"><h4>Delete</h4></td>
+        </tr>
+        {% for movie in movies %}
+            <tr>
+                <td class="text-center">{{ movie.name }}</td>
+                <td class="text-center">{{ movie.premiereDate }}</td>
+                <td class="text-center"><a href="/movie/{{ movie.originalName }}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td class="text-center"><a href="/admin/edit_movie/{{ movie.id }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td class="text-center"><a href="/admin/delete_movie/{{ movie.id }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

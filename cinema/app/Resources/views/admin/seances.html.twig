@@ -1,0 +1,31 @@
+{% extends 'admin.html.twig' %}
+{% block title %}Seances | Admin Panel{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="/admin/add_seance"><span class="glyphicon glyphicon-plus">Add Seance</span></a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <td class="text-center"><h4>Movie</h4></td>
+            <td class="text-center"><h4>Date</h4></td>
+            <td class="text-center"><h4>Time</h4></td>
+            <td class="text-center"><h4>Price</h4></td>
+            <td class="text-center"><h4>Cinema</h4></td>
+            <td class="text-center"><h4>Hall</h4></td>
+            <td class="text-center"><h4>Delete</h4></td>
+        </tr>
+        {% for seance in seances %}
+            <tr>
+                <td class="text-center">{{ seance.movie.name }}</td>
+                <td class="text-center">{{ seance.date }}</td>
+                <td class="text-center">{{ seance.time }}</td>
+                <td class="text-center">{{ seance.price }}</td>
+                <td class="text-center">{{ seance.hall.cinemaName }}</td>
+                <td class="text-center">{{ seance.hall.hallName }}</td>
+                <td class="text-center"><a href="/admin/delete_seance/{{ seance.id }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
