@@ -5,9 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
- *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TicketRepository")
  * @ORM\Table(name="ticket")
  */
 class Ticket
@@ -33,6 +31,11 @@ class Ticket
      * @ORM\Column(type="integer")
      */
     private $seat;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="Seance")

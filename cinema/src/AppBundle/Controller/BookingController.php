@@ -32,13 +32,16 @@ class BookingController extends Controller
         if ($request->getMethod() == 'POST') {
             $data = json_decode($request->getContent(), true)['data'];
             $dataInfo = json_decode($request->getContent(), true)['dataInfo'];
-            $seancePrice = $seance->getPrice();
             if (!$this->ticketsAreAvailable($seance, $data)) {
-                return $this->render('site/booking_result.html.twig', ['message' => 'Booking has failed. Tickets are not available.']);
+                return $this->render('site/booking_result.html.twig', [
+                    'message' => 'Booking has failed. Tickets are not available.'
+                ]);
             }
-            $totalCoins = $this->calculateCoins($dataInfo, $seancePrice);
+            $totalCoins = $this->calculateCoins($dataInfo);
             if ($totalCoins > $userCoins) {
-                return $this->render('site/booking_result.html.twig', ['message' => 'Booking has failed. Not enough coins.']);
+                return $this->render('site/booking_result.html.twig', [
+                    'message' => 'Booking has failed. Not enough coins.'
+                ]);
             }
             $bookingNumber = $this->generateBookingNumber();
             while ($em->getRepository('AppBundle:Ticket')->findBy(['bookingNumber' => $bookingNumber])) {
@@ -51,6 +54,7 @@ class BookingController extends Controller
                 $ticket->setSeance($seance);
                 $ticket->setRow($data[$i]['row']);
                 $ticket->setSeat($data[$i]['seat']);
+                $ticket->setPrice($dataInfo[$i]['price']);
                 if ($dataInfo[$i]['type'] == Ticket::TYPE_STUDENT) {
                     $ticket->setTicketType(Ticket::TYPE_STUDENT);
                 }
@@ -64,8 +68,13 @@ class BookingController extends Controller
                 $user->setCoins($userCoins - $totalCoins);
             }
             $em->flush();
-            return $this->render('site/booking_result.html.twig',
-                ['message' => 'You successfully booked tickets. Your booking number:'.$bookingNumber]);
+            $tickets = $em->getRepository('AppBundle:Ticket')->findBy(['bookingNumber' => $bookingNumber]);
+            return $this->render('site/booking_result.html.twig', [
+                    'message' => 'success',
+                    'bookingNumber' => $bookingNumber,
+                    'seance' => $seance,
+                    'tickets' => $tickets
+                ]);
         }
         $date = new \DateTime($seance->getDate());
         if ($date->diff(new \DateTime($seance->getMovie()->getPremiereDate()))->d <=7) {
@@ -78,7 +87,11 @@ class BookingController extends Controller
         $seats = $seance->getHall()->getSeats();
         for ($i = 1; $i <= $rows; $i++) {
             for ($j = 1; $j <= $seats; $j++) {
-                if ($em->getRepository('AppBundle:Ticket')->findBy(['seance' => $seance, 'row' => $i, 'seat' => $j])) {
+                if ($em->getRepository('AppBundle:Ticket')->findBy([
+                    'seance' => $seance,
+                    'row' => $i,
+                    'seat' => $j
+                ])) {
                     $ticketsInfo[$i][$j] = "booked";
                 } else {
                     $ticketsInfo[$i][$j] = "free";
@@ -117,22 +130,20 @@ class BookingController extends Controller
         return true;
     }
 
-    function calculateCoins($info, $seancePrice) {
+    function calculateCoins($info) {
         $totalCoins = 0;
         foreach ($info as $item) {
             $item = json_decode($item, true);
             if ($item['coins']) {
-                $totalCoins += $seancePrice;
-                if ($item['type'] == "student") {
-                    $totalCoins -= $this::STUDENT_DISCOUNT;
-                }
+                $totalCoins += $item['price'];
             }
         }
         return $totalCoins;
     }
 
     function generateTicketCode($length = 12) {
-        return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+        return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            ceil($length/strlen($x)) )),1,$length);
     }
     function generateBookingNumber($length = 8) {
         return substr(str_shuffle(str_repeat($x='0123456789', ceil($length/strlen($x)) )),1,$length);

@@ -17,7 +17,7 @@ class MovieRepository extends \Doctrine\ORM\EntityRepository
             ->select('m')
             ->from('AppBundle:Movie', 'm')
             ->orderBy('m.id', 'DESC')
-            ->setMaxResults(6)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }

@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Booking | Starlight Cinema{% endblock %}
+{% block title %}Booking | Star Cinema{% endblock %}
 {% block body %}
     <div class="site-content">
 		<div class="row" style="height:100%;">
@@ -10,8 +10,14 @@
 				<table class="text-dark">
 					<TR><TD>Cinema</TD>  <TD>:</TD><TD>{{ seance.hall.cinemaName }}</TD></TR>
 					<TR><TD>Hall </TD>    <TD>:</TD><TD>{{ seance.hall.hallName }}</TD></TR>
+					<TR><TD>Date </TD><TD>:</TD><TD>{{ seance.date }}</TD></TR>
 					<TR><TD>Time </TD><TD>:</TD><TD>{{ seance.time }}</TD></TR>
-					<TR><TD>Price </TD><TD>:</TD><TD>{{ seance.price }}</TD></TR>
+					<TR><TD>Price </TD><TD>:</TD>
+						<TD><span class="sample-low"></span>{{ seance.price - 15 }}
+						<span class="sample-default"></span>{{ seance.price}}
+						<span class="sample-high"></span>{{ seance.price + 30 }}
+						</TD>
+					</TR>
 				</table>
 				</h4>
 				<input type="hidden" id="price" value="{{ seance.price }}">
@@ -20,11 +26,13 @@
 				 <br>
 				 
 				 <div class="hall">
-					<img src="{{asset('img/screen2.png')}}">
+					<img src="{{asset('img/screen2.png')}}" style="margin-bottom: 25px;">
 					<div class="center">
 						{% for row in 1..rows %}
 							{% for seat in 1..seats %}
-							<span class="seat {{ ticketsState[row][seat] }}" id="{{ row }}_{{ seat }}">{{seat}}</span>
+							<span class="seat {{ ticketsState[row][seat] }} {% if row == 1 or row == 2 %}low
+									{% elseif row == rows %}high{% else %}default{% endif %}" id="{{ row }}_{{ seat }}">{{seat}}
+							</span>
 							{% endfor %}
 							<br>
 						{% endfor %}

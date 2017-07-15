@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Starlight Cinema{% endblock %}</title>
+        <title>{% block title %}Star Cinema{% endblock %}</title>
         {% block stylesheets %}
             <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
             <link href="{{ asset('css/bootstrap-theme.css') }}" rel="stylesheet">
@@ -32,6 +32,8 @@
                 <p class="navbar-text">Hi,
                     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
                         <a href="/admin">{{ app.user }}</a>!
+					{% else %}
+						{{ app.user }}
                     {% endif %}
                     You have {{ app.user.coins }}
                 <span class="glyphicon glyphicon-piggy-bank"></span></p>

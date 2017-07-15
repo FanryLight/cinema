@@ -33,6 +33,11 @@ class Ticket
     private $seat;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Seance")
      * @ORM\JoinColumn(name="seance_id", referencedColumnName="id", onDelete="CASCADE")
      */
@@ -212,5 +217,29 @@ class Ticket
     public function getTicketType()
     {
         return $this->ticketType;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Ticket
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

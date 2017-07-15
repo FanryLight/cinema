@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
-{% block title %}Starlight Cinema{% endblock %}
+{% block title %}Star Cinema{% endblock %}
 {% block body %}
     <div class="site-content">
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="margin-bottom:30px;">
         {% for date in dates %}
             <a class="navbar-brand"  href="/cinema/{{ cinema }}/{{ date.url }}">{{ date.label }}</a>
         {% endfor %}

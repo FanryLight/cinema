@@ -1,8 +1,51 @@
 {% extends 'base.html.twig' %}
-{% block title %}Booking | Starlight Cinema{% endblock %}
+{% block title %}Booking | Star Cinema{% endblock %}
 {% block body %}
-    <div class="site-content">
-    {{ message }}
+    <div class="site-content text-center">
+        {% if message == "success" %}
+            <div style="margin: 15px;">
+            <h3 class="sub-title center">
+                Booking information
+            </h3>
+            </div>
+            <div style="margin: 15px;">
+            <table class="text-dark center">
+                <TR><TD>Movie</TD>  <TD>:</TD><TD>{{ seance.movie.name }}</TD></TR>
+                <TR><TD>Cinema</TD>  <TD>:</TD><TD>{{ seance.hall.cinemaName }}</TD></TR>
+                <TR><TD>Hall </TD>    <TD>:</TD><TD>{{ seance.hall.hallName }}</TD></TR>
+                <TR><TD>Date </TD><TD>:</TD><TD>{{ seance.date }}</TD></TR>
+                <TR><TD>Time </TD><TD>:</TD><TD>{{ seance.time }}</TD></TR>
+            </table>
+            </div>
+            <div style="margin: 15px;">
+            Your booking number is <b>{{ bookingNumber }}</b>
+            </div>
+            <div style="margin: 15px;">
+        <h3 class="sub-title center">
+            Information about tickets:
+        </h3>
+        </div>
+            <div>
+            <table class="text-dark center">
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>Row</td><td>:</td><td>{{ ticket.row }}</td>
+                        <td>Seat</td><td>:</td><td>{{ ticket.seat }}</td>
+                        <td>Price</td><td>:</td><td>{{ ticket.price }}</td>
+                        <td>
+                        {% if ticket.ticketType == "student" %}
+                            <span class="label label-success">Student</span>
+                        {% elseif ticket.ticketType == "coins" %}
+                            <span class="label label-warning">Coins</span>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            </div>
+        {% else %}
+            {{ message }}
+        {% endif %}
     </div>
 {% endblock %}
 {% block javascripts %}

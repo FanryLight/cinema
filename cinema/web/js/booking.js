@@ -10,9 +10,18 @@ $('span').click(function () {
     if ($(this).hasClass('booked')) {
         return;
     }
+    var seancePrice = parseInt($('#price').attr('value'));
+    var price;
+    if ($(this).hasClass('low')) {
+        price = seancePrice - 15;
+    } else if ($(this).hasClass('high')) {
+        price = seancePrice + 30;
+    } else {
+        price = seancePrice;
+    }
     var id = $(this).attr('id');
     var data = '{"row": '+ id.split('_')[0] + ', "seat": ' + id.split('_')[1] + '}';
-    var info = '{"type": "default", "coins": false}';
+    var info = '{"type": "default", "coins": false, "price":'+price+'}';
     if (selected.indexOf(data) === -1) {
         selected.push(data);
         selectedInfo.push(info);
@@ -50,7 +59,6 @@ $(document).on("change", "input:checkbox.coins", function () {
 function updateTable () {
     totalPrice = 0;
     totalCoins = 0;
-    var seancePrice = parseInt($('#price').attr('value'));
     var table = "";
     var price = 0;
     var studentChecked = "";
@@ -58,7 +66,7 @@ function updateTable () {
     var coins = $('#coins').attr('value');
     for (var i = 0; i < selected.length; i++) {
         info = JSON.parse(selectedInfo[i]);
-        price = (info["type"] === "default") ? seancePrice : (seancePrice - STUDENT_DISCOUNT);
+        price = (info["type"] === "default") ? info["price"] : (info["price"] - STUDENT_DISCOUNT);
         if (info['coins']) {
             totalCoins += price;
             price = 0;
@@ -70,7 +78,7 @@ function updateTable () {
         var studentDisabled = "";
         data = JSON.parse(selected[i]);
         info = JSON.parse(selectedInfo[i]);
-        price = (info["type"] === "default") ? seancePrice : (seancePrice - STUDENT_DISCOUNT);
+        price = (info["type"] === "default") ? info["price"] : (info["price"] - STUDENT_DISCOUNT);
         if(totalCoins + price > coins && !info['coins']) {
             coinsDisabled = "disabled";
         }
@@ -79,6 +87,9 @@ function updateTable () {
         if ($('#premiere').attr('value') === "true") {
             coinsDisabled = "disabled";
             studentDisabled = "disabled";
+        }
+        if (studentChecked === "checked") {
+            coinsDisabled = "disabled";
         }
         table = table + '<tr><td>Row: '+data['row']+' Seat: '+ data['seat'] +'</td><td>'+ 'Price: '+ price+'</td></tr>';
         table = table + '<tr><td><input type="checkbox" class="student" id="'+i+'" '+studentChecked+studentDisabled+'>Student</td>' +

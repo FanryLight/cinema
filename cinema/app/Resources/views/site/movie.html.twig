@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ movie.name }} | Starlight Cinema{% endblock %}
+{% block title %}{{ movie.name }} | Star Cinema{% endblock %}
 {% block body %}
     <div class="site-content">
     <div class="container">
@@ -41,6 +41,14 @@
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </div><!-- /.container -->
+
+        {% if movie.trailer != "" %}
+            <div  style="width:854px; height:480px; margin:auto">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="854" height="480" src="{{ movie.trailer }}" allowfullscreen></iframe>
+            </div>
+            </div>
+        {% endif %}
 
     <div class="container comments">
 

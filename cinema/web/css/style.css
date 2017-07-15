@@ -46,7 +46,7 @@
     top: 50%;
     transform: translate(0, -70%);
     height: 300px;
-    width: 16.6%;
+    width: 20%;
 }
 .comment-form {
     width: 50%;
@@ -448,6 +448,15 @@ iframe {
     margin-top: 55px;
 }
 
+h3.sub-title:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #fb0000;
+    margin-top: 35px;
+}
 
 .overlay {
     position: absolute;
@@ -585,15 +594,63 @@ body {
     background-color: #ffffff;
 }
 
+.sample-low{
+     display: inline-block;
+     border-radius: 5px;
+     width: 20px;
+     height: 20px;
+     background: #5f96de;
+    margin-bottom: -3px;
+    margin-left: 10px;
+    margin-right: 5px;
+ }
+
+.sample-default{
+    display: inline-block;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background: #60bfdd;
+    margin-bottom: -3px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.sample-high{
+    display: inline-block;
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background: #466bbf;
+    margin-bottom: -3px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
 .seat {
     display: inline-block;
     border-radius: 5px;
     width: 20px;
     height: 20px;
-    margin: 2px;
-    background: #e40000;
+    margin: 3px 4px 3px 4px;
 	text-align: center;
 	color: white;
+}
+.seat:hover{
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    margin: 1px 3px 1px 3px;
+
+}
+.seat.default{
+    background: #60bfdd;
+}
+.seat.low{
+    background: #5f96de;
+}
+.seat.high{
+    background: #466bbf;
 }
 
 .hall {
@@ -618,9 +675,15 @@ body {
 }
 
 .seat.selected {
-    background: #83cd1d !important;
+    background: #ef4134 !important;
 }
 
 .seat.booked {
     background: #6E6E6E !important;
+}
+.seat.booked:hover{
+    width: 20px;
+    height: 20px;
+    margin: 3px 4px 3px 4px;
+    cursor: default;
 }

@@ -14,7 +14,7 @@
                 <td class="text-center">{{ user.email }}</td>
                 <td class="text-center">
                     <select id="{{ user.id }}" class="roleSelect" name="role" {% if roles[user.id] == "admin" %} disabled {% endif %}>
-                        <option value="user" {% if roles[user.id] == "user" %} selected {% endif %}>Used</option>
+                        <option value="user" {% if roles[user.id] == "user" %} selected {% endif %}>User</option>
                         <option value="moderator" {% if roles[user.id] == "moderator" %} selected {% endif %}>Moderator</option>
                         <option value="admin" {% if roles[user.id] == "admin" %} selected {% endif %}>Admin</option>
                     </select>

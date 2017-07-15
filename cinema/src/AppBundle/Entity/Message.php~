@@ -50,6 +50,7 @@ class Message
     function __construct()
     {
         $this->isRead = false;
+        $this->answer = "";
     }
 
     /**
@@ -156,5 +157,29 @@ class Message
     public function getIsRead()
     {
         return $this->isRead;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param string $answer
+     *
+     * @return Message
+     */
+    public function setAnswer($answer)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return string
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
     }
 }

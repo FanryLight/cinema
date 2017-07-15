@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Starlight Cinema{% endblock %}
+{% block title %}Star Cinema{% endblock %}
 {% block body %}
     <div class="header">
         <h1>STAR CINEMA</h1>
@@ -18,7 +18,7 @@
                 <div class="">
                     <h2 class="sub-title">{{ new.title }}</h2>
                     <p>
-                        {{ new.text }}
+                        {{ new.text | raw }}
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-time"></span> {{ new.date }}
