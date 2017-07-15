@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+    {% block stylesheets %}
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap-theme.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div class="container-fluid left">
+    <div class="row">
+<div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked text-center">
+        <li role="presentation"><h4>Manager Panel</h4></li>
+        <li role="presentation"><a href="/admin">Statistic</a></li>
+        <li role="presentation"><a href="/admin/movies">Movies</a></li>
+        <li role="presentation"><a href="/admin/seances">Seances</a></li>
+        <li role="presentation"><a href="/admin/comments">Comments</a></li>
+    </ul>
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <ul class="nav nav-pills nav-stacked text-center">
+            <li role="presentation" class="text-center"><h4>Admin Panel</h4></li>
+            <li role="presentation"><a href="/admin/news">News</a></li>
+            <li role="presentation"><a href="/admin/users">Users</a></li>
+            <li role="presentation"><a href="/admin/messages">Messages</a></li>
+            <li role="presentation"><a href="/admin/dispatch">Email Dispatch</a></li>
+        </ul>
+    {% endif %}
+</div>
+<div class="col-sm-9 myBody">
+{% block body %}
+{% endblock %}
+    </div></div></div>
+{% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+{% endblock %}
+</body>
+</html>
+

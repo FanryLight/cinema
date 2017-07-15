@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Star Cinema{% endblock %}
+{% block body %}
+    <div class="site-content">
+<nav class="navbar navbar-default" style="margin-bottom:30px;">
+        {% for date in dates %}
+            <a class="navbar-brand"  href="/cinema/{{ cinema }}/{{ date.url }}">{{ date.label }}</a>
+        {% endfor %}
+</nav>
+    <div class="row">
+    {% for seance in seances %}
+        <div class="col-sm-4 col-md-3">
+            <div class="thumbnail">
+                <img src="{{ seance.picture }}" />
+                <div class="caption">
+                    <a href="/movie/{{ seance.originalName }}">{{ seance.name }}</a>
+                    <p>
+                        {% for time in seance.seances %}
+                            <a href="/booking/{{ time.id }}">{{ time.time }}</a>
+                        {% endfor %}
+                    </p>
+                    </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+{% endblock %}

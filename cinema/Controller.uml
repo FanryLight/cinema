@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>D:/cinema/cinema/src/AppBundle/Controller</OriginalElement>
+  <nodes>
+    <node x="792.5967450271246" y="889.0361663652806">\AppBundle\Controller\MoviesController</node>
+    <node x="-103.96917989127832" y="353.37833166012524">\AppBundle\Controller\RecommendationController</node>
+    <node x="56.31374321880651" y="705.3978300180831">\Symfony\Component\DependencyInjection\ContainerAwareInterface</node>
+    <node x="1121.5388788426762" y="887.8245931283907">\AppBundle\Controller\DefaultController</node>
+    <node x="351.5" y="343.0">\Symfony\Bundle\FrameworkBundle\Controller\Controller</node>
+    <node x="37.691777192881716" y="777.8842064957882">\FOS\UserBundle\Controller\RegistrationController</node>
+    <node x="1142.6916817359856" y="353.71066907775764">\AppBundle\Controller\AdminController</node>
+    <node x="378.81735985533453" y="887.4882459312839">\AppBundle\Controller\BookingController</node>
+    <node x="83.29444483771249" y="942.3879432578475">\AppBundle\Controller\RegistrationController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\AppBundle\Controller\DefaultController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="0.0" y="48.0" />
+      <point x="0.0" y="-257.0" />
+    </edge>
+    <edge source="\AppBundle\Controller\MoviesController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="150.0" y="-0.0" />
+      <point x="-368.5" y="-0.0" />
+    </edge>
+    <edge source="\AppBundle\Controller\AdminController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="-275.5" y="-0.0" />
+      <point x="368.5" y="-0.0" />
+    </edge>
+    <edge source="\AppBundle\Controller\BookingController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="257.0" />
+    </edge>
+    <edge source="\FOS\UserBundle\Controller\RegistrationController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="0.0" y="70.0" />
+      <point x="528.1222835005439" y="649.6085409252667" />
+      <point x="368.5" y="-80.0" />
+    </edge>
+    <edge source="\AppBundle\Controller\RecommendationController" target="\Symfony\Bundle\FrameworkBundle\Controller\Controller">
+      <point x="0.0" y="147.0" />
+      <point x="988.8343897944777" y="566.1066751187277" />
+      <point x="368.5" y="-40.0" />
+    </edge>
+    <edge source="\Symfony\Bundle\FrameworkBundle\Controller\Controller" target="\Symfony\Component\DependencyInjection\ContainerAwareInterface">
+      <point x="-40.0" y="257.0" />
+      <point x="350.70524412296567" y="731.6889692585895" />
+      <point x="99.5" y="-0.0" />
+    </edge>
+    <edge source="\AppBundle\Controller\RegistrationController" target="\FOS\UserBundle\Controller\RegistrationController">
+      <point x="97.5" y="-0.0" />
+      <point x="-137.5" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6094609460946094" x="795.0" y="685.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

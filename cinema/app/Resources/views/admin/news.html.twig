@@ -1,0 +1,27 @@
+{% extends 'admin.html.twig' %}
+{% block title %}News | Admin Panel{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="/admin/add_news"><span class="glyphicon glyphicon-plus">Add News</span></a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr>
+            <td class="text-center"><h4>Title</h4></td>
+            <td class="text-center"><h4>Date</h4></td>
+            <td class="text-center"><h4>Text</h4></td>
+            <td class="text-center"><h4>Edit</h4></td>
+            <td class="text-center"><h4>Delete</h4></td>
+        </tr>
+        {% for new in news %}
+            <tr>
+                <td class="text-center">{{ new.title }}</td>
+                <td class="text-center">{{ new.date }}</td>
+                <td class="text-center">{{ new.text | slice(0,40) }}</td>
+                <td class="text-center"><a href="/admin/edit_news/{{ new.id }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td class="text-center"><a href="/admin/delete_news/{{ new.id }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+</head>
+<body>
+<div style="margin: auto; width: 50%;">
+    <h3 style="text-align: center;">Hi, {{ message.user.username }}</h3>
+    <p style="text-align:center;">You contacted the administrator on {{ message.date }}. Here's your message:</p>
+    <p style="text-align:justify">{{ message.text }}</p>
+    <p style="text-align:center;">Thank you for your message. We appreciate you contacting us about your question.</p>
+    <p style="text-align:justify">{{ message.answer }}</p>
+    </div>
+</body>
+</html>
+

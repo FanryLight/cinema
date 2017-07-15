@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Booking | Star Cinema{% endblock %}
+{% block body %}
+    <div class="site-content">
+		<div class="row" style="height:100%;">
+			<div class="col-sm-8">
+				
+				<h2>{{ seance.movie.name }}</h2>
+				<h4 class="sub-text">
+				<table class="text-dark">
+					<TR><TD>Cinema</TD>  <TD>:</TD><TD>{{ seance.hall.cinemaName }}</TD></TR>
+					<TR><TD>Hall </TD>    <TD>:</TD><TD>{{ seance.hall.hallName }}</TD></TR>
+					<TR><TD>Date </TD><TD>:</TD><TD>{{ seance.date }}</TD></TR>
+					<TR><TD>Time </TD><TD>:</TD><TD>{{ seance.time }}</TD></TR>
+					<TR><TD>Price </TD><TD>:</TD>
+						<TD><span class="sample-low"></span>{{ seance.price - 15 }}
+						<span class="sample-default"></span>{{ seance.price}}
+						<span class="sample-high"></span>{{ seance.price + 30 }}
+						</TD>
+					</TR>
+				</table>
+				</h4>
+				<input type="hidden" id="price" value="{{ seance.price }}">
+				<input type="hidden" id="coins" value="{{ coins }}">
+				<input type="hidden" id="premiere" value="{{ premiere }}">
+				 <br>
+				 
+				 <div class="hall">
+					<img src="{{asset('img/screen2.png')}}" style="margin-bottom: 25px;">
+					<div class="center">
+						{% for row in 1..rows %}
+							{% for seat in 1..seats %}
+							<span class="seat {{ ticketsState[row][seat] }} {% if row == 1 or row == 2 %}low
+									{% elseif row == rows %}high{% else %}default{% endif %}" id="{{ row }}_{{ seat }}">{{seat}}
+							</span>
+							{% endfor %}
+							<br>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="con-sm-3 tickets-info">
+			<p class="text-center">Tickets information</p>
+				<table id="tickets">
+				</table>
+				Total price: <label id="totalPrice"></label><br>
+				Coins used: <label id="totalCoins"></label>
+				<form id="booking" action="/booking/{{ seance.id }}" method="post">
+					<input type="submit" value="Book">
+				</form>
+			</div>
+		</div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('js/booking.js') }}"></script>
+{% endblock %}

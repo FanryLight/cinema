@@ -1,0 +1,48 @@
+{% extends 'admin.html.twig' %}
+{% block title %}Seances | Admin Panel{% endblock %}
+{% block body %}
+        {% for message in messages %}
+            <div class="row" style="margin-bottom: 15px">
+            <div class="col-md-5">
+            <table>
+                <tr>
+                    <td class="text-center">User</td><td>:</td><td>{{ message.user.username }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Text</td><td>:</td><td>{{  message.text }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Date</td><td>:</td><td>{{ message.date }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Status</td><td>:</td><td>
+                        {% if message.isRead %}
+                            <label style="color: green;">Read</label>
+                        {% else %}
+                            <label style="color: red;">Not Read</label>
+                        {% endif %}</td>
+                </tr>
+                <tr>
+                    <td class="text-center">Delete</td><td>:</td>
+                    <td><a href="/admin/delete_message/{{ message.id }}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            <div class="col-md-4">
+                {% if message.isRead %}
+                    <td class="text-center">Reply:</td>
+                    <td class="text-center">{{ message.answer }}</td>
+                {% else %}
+                    <form action="/admin/answer" method="post">
+                        <input type="hidden" value="{{ message.id }}" name="messageId">
+                        <textarea name="answer" placeholder="Answer..."></textarea>
+                        <input type="submit" class="btn btn-success" value="Reply">
+                    </form>
+                {% endif %}
+            </div>
+            </div>
+        {% endfor %}
+{% endblock %}

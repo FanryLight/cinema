@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Star Cinema{% endblock %}
+{% block body %}
+    <div class="header">
+        <h1>STAR CINEMA</h1>
+    </div>
+    <div class="movies-show">
+        <h1 class="section-title">New movies</h1>
+        {% for movie in movies %}
+            <div class="movie col-sm-2">
+                <a href="movie/{{ movie.originalName }}" title="{{ movie.name }}"><img src="{{ movie.picture }}"/></a>
+            </div>
+        {% endfor %}
+    </div>
+    {% block news %}
+        {% for new in news %}
+            <div class="container">
+                <div class="">
+                    <h2 class="sub-title">{{ new.title }}</h2>
+                    <p>
+                        {{ new.text | raw }}
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-time"></span> {{ new.date }}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ movie.name }} | Star Cinema{% endblock %}
+{% block body %}
+    <div class="site-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="movie-disc">
+                    <div class="movie-avatar">
+                        <div class="movie-avatar-img">
+                            <img src="{{ movie.picture }}" alt="">
+                        </div><!-- /.movie-avatar-img -->
+                    </div><!-- /.movie-disc -->
+                </div><!-- /.movie-avatar -->
+            </div><!-- /.col-lg-6 -->
+
+            <div class="col-lg-6">
+                <h2>{{ movie.name }}</h2>
+                <h4 class="sub-text">{{ movie.originalName }}<br>
+                    Rating: {{ rating }}
+                </h4>
+
+
+
+                <table class="text-dark">
+                    <TR><TD>Premiere</TD>  <TD>:</TD><TD>{{ movie.premiereDate }}</TD></TR>
+
+                    <TR><TD>Country </TD>    <TD>:</TD><TD>{{ movie.country }}</TD></TR>
+
+                    <TR><TD>Director </TD><TD>:</TD><TD>{{ movie.director }}</TD></TR>
+
+                    <TR><TD>Starring </TD><TD>:</TD><TD>{{ movie.starring }}</TD></TR>
+
+                    <TR><TD>Genre</TD><TD>:</TD><TD>{{ movie.genres }}</TD></TR>
+
+                </table>
+                <br>
+                <p>{{ movie.description }}</p>
+                    <br>
+                <p></p>
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+        {% if movie.trailer != "" %}
+            <div  style="width:854px; height:480px; margin:auto">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="854" height="480" src="{{ movie.trailer }}" allowfullscreen></iframe>
+            </div>
+            </div>
+        {% endif %}
+
+    <div class="container comments">
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% block leaveComment %}
+            <form class="comment-form" action="/leave_comment/{{ movie.id }}" method="post">
+                {% if message %}
+                    <div class="alert alert-danger" role="alert">{{ message }}</div>
+                {% endif %}
+                <input  required id="input-1-sm" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="1" data-size="sm">
+                <input type="text" maxlength="12" class="form-control" placeholder="Ticket Code" name="ticketCode">
+                <textarea class="form-control" name="text" rows="3" required >{{ text }}</textarea>
+                <input type="submit" value="Send" class="btn btn-default">
+            </form>
+        {% endblock %}
+    {% else %}
+        <a class="text-right" data-toggle="modal" data-target="#registerModal"
+           href="{{ path('fos_user_registration_register') }}">Register</a> or
+        <a data-toggle="modal" data-target="#loginModal"
+           href="{{ path('fos_user_security_login') }}">Login
+    </a>  to leave the comment
+    {% endif %}
+        {% block comments %}
+            {% for comment in comments %}
+                <div class="comment">
+                    {{ comment.user.username }}
+                    {{ comment.date }}<br>
+                    {{ comment.text }}
+                </div>
+            {% endfor %}
+        {% endblock %}
+    </div>
+
+    </div>
+{% endblock %}
