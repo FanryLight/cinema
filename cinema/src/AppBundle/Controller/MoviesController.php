@@ -22,6 +22,9 @@ class MoviesController extends Controller
         $movie = $this->getDoctrine()
             ->getRepository('AppBundle:Movie')
             ->findOneBy(array('originalName' => $movieName));
+        if (!$movie) {
+            return $this->redirectToRoute('homepage');
+        }
         $comments = $this->getDoctrine()
             ->getRepository('AppBundle:Comment')
             ->findBy(array('movie' => $movie));
@@ -54,7 +57,7 @@ class MoviesController extends Controller
     }
 
     /**
-     * @Route("/leave_comment/{movieId}", name="leave_comment")
+     * @Route("/leave_comment/{movieId}", name="leave_comment", requirements={"movieId": "\d+"})
      * @param Request $request
      * @param $movieId
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -62,9 +65,18 @@ class MoviesController extends Controller
     public function leaveCommentAction(Request $request, $movieId)
     {
         $movie = $this->getDoctrine()->getRepository('AppBundle:Movie')->find($movieId);
+        if (!$movie) {
+            return $this->redirectToRoute('homepage');
+        }
         $user = $this->getUser();
+        if (!$user) {
+            return $this->redirectToRoute('homepage');
+        }
         $text = $request->get('text');
         $rating = $request->get('rating');
+        if (!$text) {
+            return $this->redirectToRoute('homepage');
+        }
         $ticketCode = $request->get('ticketCode');
         if ($ticketCode) {
             $ticket = $this->getDoctrine()
@@ -103,34 +115,36 @@ class MoviesController extends Controller
         if (!$date) {
             $date = \date('Y-m-d');
         }
-        $halls = $this->getDoctrine()
-            ->getRepository('AppBundle:Hall')
-            ->findBy(array('cinemaName' => $cinemaName));
-        $seancesOnDate = array();
-        foreach ($halls as $hall) {
-            $seancesOnDate[] = $this->getDoctrine()
-                ->getRepository('AppBundle:Seance')
-                ->findBy(array('hall' => $hall, 'date' => $date));
-        }
+        $seances = $this->getDoctrine()
+            ->getRepository('AppBundle:Seance')
+            ->findByCinemaAndDate($cinemaName, $date);
         $seanceInfo = array();
         $nowTime = \date('H:i');
         $nowDate = \date('Y-m-d');
-        foreach ($seancesOnDate as $seances) {
-            foreach ($seances as $seance) {
-                if ($seance->getTime() >= $nowTime || $date > $nowDate) {
-                    $id = $seance->getMovie()->getId();
-                    $movie = $seance->getMovie();
-                    $movieSeances = isset($seanceInfo[$id]['seances']) ? $seanceInfo[$id]['seances']: array();
-                    $movieSeances[] = array('time' => $seance->getTime(), 'id' => $seance->getId());
-                    $seanceInfo[$id] = array(
-                        'name' => $movie->getName(),
-                        'originalName' => $movie->getOriginalName(),
-                        'picture' => $movie->getPicture(),
-                        'seances' => $movieSeances
-                    );
-                }
+        foreach ($seances as $seance) {
+            if ($date > $nowDate || ($date === $nowDate && $seance->getTime() >= $nowTime)) {
+                $id = $seance->getMovie()->getId();
+                $movie = $seance->getMovie();
+                $movieSeances = isset($seanceInfo[$id]['seances']) ? $seanceInfo[$id]['seances']: array();
+                $movieSeances[] = array('time' => $seance->getTime(), 'id' => $seance->getId());
+                $seanceInfo[$id] = array(
+                    'name' => $movie->getName(),
+                    'originalName' => $movie->getOriginalName(),
+                    'picture' => $movie->getPicture(),
+                    'seances' => $movieSeances
+                );
             }
         }
+        $dates = $this->getNextSevenDates();
+        return $this->render('site/cinema.html.twig', array(
+            'seances' => $seanceInfo,
+            'cinema' => $cinemaName,
+            'dates' => $dates
+        ));
+    }
+
+    private function getNextSevenDates()
+    {
         $dates = array();
         $date = new \DateTime(\date('Y-m-d'));
         for ($i = 0; $i < 7; $i++) {
@@ -138,10 +152,6 @@ class MoviesController extends Controller
             $date->add(new \DateInterval($interval));
             $dates[] = array('url' => $date->format('Y-m-d'), 'label' => $date->format('j F'));
         }
-        return $this->render('site/cinema.html.twig', array(
-            'seances' => $seanceInfo,
-            'cinema' => $cinemaName,
-            'dates' => $dates
-        ));
+        return $dates;
     }
 }

@@ -23,6 +23,9 @@ class BookingController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $seance = $em->getRepository('AppBundle:Seance')->find($seanceId);
+        if (!$seance) {
+            return $this->redirectToRoute('homepage');
+        }
         $user = $this->getUser();
         if ($user) {
             $userCoins = $user->getCoins();
@@ -30,8 +33,12 @@ class BookingController extends Controller
             $userCoins = 0;
         }
         if ($request->getMethod() == 'POST') {
-            $data = json_decode($request->getContent(), true)['data'];
-            $dataInfo = json_decode($request->getContent(), true)['dataInfo'];
+            $jsonData = json_decode($request->getContent(), true);
+            $data = isset($jsonData['data']) ? $jsonData['data'] : null;
+            $dataInfo = isset($jsonData['dataInfo']) ? $jsonData['dataInfo'] : null;
+            if (!$data || !$dataInfo) {
+                return $this->redirectToRoute('homepage');
+            }
             if (!$this->ticketsAreAvailable($seance, $data)) {
                 return $this->render('site/booking_result.html.twig', [
                     'message' => 'Booking has failed. Tickets are not available.'
@@ -82,22 +89,7 @@ class BookingController extends Controller
         } else {
             $premiere = "false";
         }
-        $ticketsInfo = [];
-        $rows = $seance->getHall()->getRows();
-        $seats = $seance->getHall()->getSeats();
-        for ($i = 1; $i <= $rows; $i++) {
-            for ($j = 1; $j <= $seats; $j++) {
-                if ($em->getRepository('AppBundle:Ticket')->findBy([
-                    'seance' => $seance,
-                    'row' => $i,
-                    'seat' => $j
-                ])) {
-                    $ticketsInfo[$i][$j] = "booked";
-                } else {
-                    $ticketsInfo[$i][$j] = "free";
-                }
-            }
-        }
+        $ticketsInfo = $this->getTicketsInfoOnSeance($seance);
         return $this->render('site/booking.html.twig', [
             'rows' => $seance->getHall()->getRows(),
             'seats' => $seance->getHall()->getSeats(),
@@ -106,6 +98,29 @@ class BookingController extends Controller
             'ticketsState' => $ticketsInfo,
             'premiere' => $premiere]
         );
+    }
+
+    /**
+     * @param Seance $seance
+     * @return array
+     */
+    private function getTicketsInfoOnSeance(Seance $seance)
+    {
+        $tickets = $this->getDoctrine()
+            ->getRepository('AppBundle:Ticket')
+            ->findBy(['seance' => $seance]);
+        $rows = $seance->getHall()->getRows();
+        $seats = $seance->getHall()->getSeats();
+        $ticketsInfo = array();
+        for ($i = 1; $i <= $rows; $i++) {
+            for ($j = 1; $j <= $seats; $j++) {
+                $ticketsInfo[$i][$j] = "free";
+            }
+        }
+        foreach ($tickets as $ticket) {
+            $ticketsInfo[$ticket->getRow()][$ticket->getSeat()] = "booked";
+        }
+        return $ticketsInfo;
     }
 
     /**

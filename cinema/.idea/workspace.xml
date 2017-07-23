@@ -15,21 +15,11 @@
       <file leaf-file-name="BookingController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
+            <state relative-caret-position="-1146">
+              <caret line="56" column="51" lean-forward="false" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
               <folding>
-                <element signature="e#4544#5067#0#PHP" expanded="false" />
+                <element signature="e#5018#5541#0#PHP" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -37,29 +27,45 @@
       <file leaf-file-name="MoviesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MoviesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1622">
-              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="357">
+              <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+              <folding>
+                <element signature="e#493#1719#0#PHP" expanded="false" />
+                <element signature="e#1958#3657#0#PHP" expanded="false" />
+                <element signature="e#3851#5195#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecommendationController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RecommendationController.php">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
-              <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RegistrationController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-534">
-              <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="2244">
+              <caret line="368" column="0" lean-forward="true" selection-start-line="368" selection-start-column="0" selection-end-line="368" selection-end-column="0" />
+              <folding>
+                <element signature="e#550#2404#0#PHP" expanded="false" />
+                <element signature="e#2476#2578#0#PHP" expanded="false" />
+                <element signature="e#2650#2868#0#PHP" expanded="false" />
+                <element signature="e#3025#4128#0#PHP" expanded="false" />
+                <element signature="e#4350#4670#0#PHP" expanded="false" />
+                <element signature="e#4833#5913#0#PHP" expanded="false" />
+                <element signature="e#6078#7966#0#PHP" expanded="false" />
+                <element signature="e#8127#8743#0#PHP" expanded="false" />
+                <element signature="e#8869#9075#0#PHP" expanded="false" />
+                <element signature="e#9314#10377#0#PHP" expanded="false" />
+                <element signature="e#10589#10895#0#PHP" expanded="false" />
+                <element signature="e#11023#11235#0#PHP" expanded="false" />
+                <element signature="e#11452#11765#0#PHP" expanded="false" />
+                <element signature="e#11887#12082#0#PHP" expanded="false" />
+                <element signature="e#12316#12969#0#PHP" expanded="false" />
+                <element signature="e#13176#13474#0#PHP" expanded="false" />
+                <element signature="e#13604#13835#0#PHP" expanded="false" />
+                <element signature="e#14040#14392#0#PHP" expanded="false" />
+                <element signature="e#14614#14934#0#PHP" expanded="false" />
+                <element signature="e#15058#15662#0#PHP" expanded="false" />
+                <element signature="e#15837#16498#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,11 +126,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/admin/news.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/MovieRepository.php" />
         <option value="$PROJECT_DIR$/web/css/star-rating.css" />
         <option value="$PROJECT_DIR$/web/js/star-rating.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Seance.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/seance.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/seances.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php" />
@@ -140,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Listener/RegistrationListener.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Movie.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/site/profile.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/MoviesController.php" />
         <option value="$PROJECT_DIR$/web/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
@@ -156,7 +159,6 @@
         <option value="$PROJECT_DIR$/app/Resources/views/admin/dispatch.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/TicketRepository.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/RecommendationController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/admin.html.twig" />
@@ -170,7 +172,11 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Ticket.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/site/booking_result.html.twig" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Seance.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Repository/SeanceRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/MoviesController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BookingController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
       </list>
     </option>
   </component>
@@ -202,6 +208,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -332,6 +340,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -374,8 +404,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,19 +414,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\cinema\cinema\app\Resources\views\hall" />
-      <recent name="D:\cinema\cinema\src\AppBundle\Repository" />
-      <recent name="D:\cinema\cinema\app\Resources\views\admin" />
-      <recent name="D:\cinema\cinema\app\Resources\views\emails" />
-      <recent name="D:\cinema\cinema\src\AppBundle\Entity" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\cinema\cinema\src\AppBundle\Listener" />
       <recent name="D:\cinema\cinema\app\Resources" />
       <recent name="D:\cinema\cinema\app\Resources\views\FOSUserBundle\views" />
       <recent name="D:\cinema\cinema\app\Resources\views\FOSUserBundle" />
       <recent name="D:\cinema\cinema\web\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\cinema\cinema\src\AppBundle\Repository" />
+      <recent name="D:\cinema\cinema\app\Resources\views\hall" />
+      <recent name="D:\cinema\cinema\app\Resources\views\admin" />
+      <recent name="D:\cinema\cinema\app\Resources\views\emails" />
+      <recent name="D:\cinema\cinema\src\AppBundle\Entity" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -531,11 +559,14 @@
       <workItem from="1497971577450" duration="950000" />
       <workItem from="1500128144816" duration="674000" />
       <workItem from="1500142199852" duration="396000" />
+      <workItem from="1500150997944" duration="1740000" />
+      <workItem from="1500152960627" duration="1808000" />
+      <workItem from="1500847953701" duration="701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269383000" />
+    <option name="totallyTimeSpent" value="273632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -569,32 +600,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/UserInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/users.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -617,13 +627,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/site/profile.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Seance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -687,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/TicketRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/admin/dispatch.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -705,13 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="7" lean-forward="false" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="57" column="13" lean-forward="false" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -963,75 +952,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RegistrationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1299">
-          <caret line="115" column="7" lean-forward="false" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
-          <folding>
-            <element signature="e#550#2404#0#PHP" expanded="false" />
-            <element signature="e#2476#2578#0#PHP" expanded="false" />
-            <element signature="e#2650#2868#0#PHP" expanded="false" />
-            <element signature="e#3025#4001#0#PHP" expanded="false" />
-            <element signature="e#4155#4475#0#PHP" expanded="false" />
-            <element signature="e#4638#5718#0#PHP" expanded="false" />
-            <element signature="e#5883#7771#0#PHP" expanded="false" />
-            <element signature="e#7932#8548#0#PHP" expanded="false" />
-            <element signature="e#8674#8880#0#PHP" expanded="false" />
-            <element signature="e#9024#10087#0#PHP" expanded="false" />
-            <element signature="e#10235#10541#0#PHP" expanded="false" />
-            <element signature="e#10669#10881#0#PHP" expanded="false" />
-            <element signature="e#11032#11345#0#PHP" expanded="false" />
-            <element signature="e#11467#11662#0#PHP" expanded="false" />
-            <element signature="e#11833#12399#0#PHP" expanded="false" />
-            <element signature="e#12544#12842#0#PHP" expanded="false" />
-            <element signature="e#12972#13203#0#PHP" expanded="false" />
-            <element signature="e#13346#13698#0#PHP" expanded="false" />
-            <element signature="e#13852#14172#0#PHP" expanded="false" />
-            <element signature="e#14296#14900#0#PHP" expanded="false" />
-            <element signature="e#15075#15736#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="98" column="13" lean-forward="true" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
-          <folding>
-            <element signature="e#4544#5067#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MoviesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1622">
-          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        <state relative-caret-position="299">
+          <caret line="44" column="49" lean-forward="true" selection-start-line="44" selection-start-column="49" selection-end-line="44" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RecommendationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+        <state relative-caret-position="-2761">
+          <caret line="38" column="55" lean-forward="true" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/RegistrationController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/News.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="7" column="69" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Seance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/MovieRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/CommentRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="31" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/TicketRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/SeanceRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1146">
+          <caret line="56" column="51" lean-forward="false" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="51" />
+          <folding>
+            <element signature="e#5018#5541#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="50" column="37" lean-forward="false" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MoviesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <folding>
+            <element signature="e#493#1719#0#PHP" expanded="false" />
+            <element signature="e#1958#3657#0#PHP" expanded="false" />
+            <element signature="e#3851#5195#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="368" column="0" lean-forward="true" selection-start-line="368" selection-start-column="0" selection-end-line="368" selection-end-column="0" />
+          <folding>
+            <element signature="e#550#2404#0#PHP" expanded="false" />
+            <element signature="e#2476#2578#0#PHP" expanded="false" />
+            <element signature="e#2650#2868#0#PHP" expanded="false" />
+            <element signature="e#3025#4128#0#PHP" expanded="false" />
+            <element signature="e#4350#4670#0#PHP" expanded="false" />
+            <element signature="e#4833#5913#0#PHP" expanded="false" />
+            <element signature="e#6078#7966#0#PHP" expanded="false" />
+            <element signature="e#8127#8743#0#PHP" expanded="false" />
+            <element signature="e#8869#9075#0#PHP" expanded="false" />
+            <element signature="e#9314#10377#0#PHP" expanded="false" />
+            <element signature="e#10589#10895#0#PHP" expanded="false" />
+            <element signature="e#11023#11235#0#PHP" expanded="false" />
+            <element signature="e#11452#11765#0#PHP" expanded="false" />
+            <element signature="e#11887#12082#0#PHP" expanded="false" />
+            <element signature="e#12316#12969#0#PHP" expanded="false" />
+            <element signature="e#13176#13474#0#PHP" expanded="false" />
+            <element signature="e#13604#13835#0#PHP" expanded="false" />
+            <element signature="e#14040#14392#0#PHP" expanded="false" />
+            <element signature="e#14614#14934#0#PHP" expanded="false" />
+            <element signature="e#15058#15662#0#PHP" expanded="false" />
+            <element signature="e#15837#16498#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
