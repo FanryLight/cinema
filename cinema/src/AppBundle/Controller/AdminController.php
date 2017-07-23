@@ -81,6 +81,9 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $messageId = $request->get('messageId');
         $answer = $request->get('answer');
+        if (!$messageId || !$answer || !is_int($messageId)) {
+            return $this->redirectToRoute('messages');
+        }
         $message = $em->getRepository('AppBundle:Message')->find($messageId);
         $message->setAnswer($answer);
         $message->setIsRead(true);
@@ -102,7 +105,8 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/delete_message/{messageId}", name="delete_message")
+     * @Route("/admin/delete_message/{messageId}", name="delete_message", requirements={"messageId": "\d+"})
+     * @param integer $messageId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteMessageAction($messageId)
@@ -216,7 +220,9 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/edit_movie/{movieId}", name="edit_movie")
+     * @Route("/admin/edit_movie/{movieId}", name="edit_movie", requirements={"movieId": "\d+"})
+     * @param Request $request
+     * @param integer $movieId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editMovieAction(Request $request, $movieId)
@@ -241,7 +247,8 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/delete_movie/{movieId}", name="delete_movie")
+     * @Route("/admin/delete_movie/{movieId}", name="delete_movie", requirements={"movieId": "\d+"})
+     * @param integer $movieId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteMovieAction($movieId)
@@ -263,7 +270,8 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/delete_seance/{seanceId}", name="delete_seance")
+     * @Route("/admin/delete_seance/{seanceId}", name="delete_seance", requirements={"seanceId": "\d+"})
+     * @param integer $seanceId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteSeanceAction($seanceId)
@@ -285,24 +293,32 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/edit_news/{newId}", name="edit_news")
+     * @Route("/admin/edit_news/{newsId}", name="edit_news", requirements={"newsId": "\d+"})
      * @param Request $request
+     * @param integer $newsId
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editNewsAction(Request $request, $newId)
+    public function editNewsAction(Request $request, $newsId)
     {
-        $news = $this->getDoctrine()->getManager()->getRepository('AppBundle:News')->find($newId);
+        $news = $this->getDoctrine()->getManager()->getRepository('AppBundle:News')->find($newsId);
         if ($request->getMethod() == "POST") {
             $news->setTitle($request->get('title'));
             $news->setText($request->get('text'));
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute("news");
         }
-        return $this->render('admin/new.html.twig',['button' => 'Save', 'action' => '/admin/edit_news/'.$newId, 'new' => $news]);
+        return $this->render('admin/new.html.twig',
+            [
+                'button' => 'Save',
+                'action' => '/admin/edit_news/'.$newsId,
+                'new' => $news
+            ]
+        );
     }
 
     /**
-     * @Route("/admin/delete_news/{newsId}", name="delete_news")
+     * @Route("/admin/delete_news/{newsId}", name="delete_news", requirements={"newsId": "\d+"})
+     * @param integer $newsId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteNewsAction($newsId)
@@ -324,7 +340,8 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/block_user/{userId}", name="block_user")
+     * @Route("/admin/block_user/{userId}", name="block_user", requirements={"userId": "\d+"})
+     * @param integer $userId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function blockUserAction($userId)
@@ -338,7 +355,8 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/delete_comment/{commentId}", name="delete_comment")
+     * @Route("/admin/delete_comment/{commentId}", name="delete_comment", requirements={"commentId": "\d+"})
+     * @param integer $commentId
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function deleteCommentAction($commentId)
